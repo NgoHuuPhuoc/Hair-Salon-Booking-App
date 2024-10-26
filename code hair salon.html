@@ -1,0 +1,407 @@
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Salon Booking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://mbspilates.vn/wp-content/uploads/2024/07/salon-toc-tphcm-12.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        nav {
+            background-color: rgba(0, 86, 179, 0);
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #bfb9b9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #a8a8a8;
+        }
+        .message {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .form-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .active {
+            display: block;
+            opacity: 1;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+        .hairstyle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .hairstyle img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .hairstyles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+            gap: 15px;
+        }
+                table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Để bo góc cho bảng */
+      }
+
+      th, td {
+          border: 1px solid #ddd;
+          padding: 10px;
+          text-align: center;
+      }
+
+      th {
+          background-color: #4CAF50; /* Màu nền tiêu đề */
+          color: white; /* Màu chữ tiêu đề */
+      }
+
+      tr:hover {
+          background-color: #ddd; /* Màu nền khi di chuột qua hàng */
+      }
+
+      td {
+          font-weight: bold; /* Đậm chữ cho giá */
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hair Salon Booking App</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('home')">Trang Chủ</a>
+        <a href="#" onclick="showSection('hairstyles')">Mẫu Tóc</a>
+        <a href="#" onclick="showSection('login')">Đăng Nhập</a>
+        <a href="#" onclick="showSection('register')">Đăng Ký</a>
+        <a href="#" onclick="showSection('booking')">Đặt Lịch Hẹn</a>
+    </nav>
+    <div class="container">
+        <div id="home" class="form-section active">
+            <h1>Chào Mừng Đến Với Hair Salon</h1>
+            <p>Chúng tôi cung cấp dịch vụ làm tóc chất lượng cao với đội ngũ chuyên viên tận tâm.</p>
+            <p>Hãy đặt lịch hẹn ngay hôm nay để trải nghiệm dịch vụ tốt nhất!</p>
+        </div>
+                <div id="hairstyles" class="form-section">
+            <h1>Mẫu Tóc</h1>
+            <h2>Tóc Nhuộm</h2>
+            <div class="hairstyles-grid">
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/T%C3%B3c%20Nhu%E1%BB%99m/Balayage%2C%20Ombre/9.png" alt="Tóc Nhuộm Balayage, Ombre">
+                    <p>Mẫu Tóc Balayage, Ombre</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/1.jpg" alt="Màu Tóc Công Sở">
+                    <p>Mẫu Tóc Công Sở</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/16.png" alt="Màu Tóc Thời Trang">
+                  <p>Mẫu Tóc Thời Trang</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dịch Vụ</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tóc Nam</td>
+                            <td>300.000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Tóc Nữ</td>
+                            <td>600.000 VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Cắt Và Tạo Kiểu</h2>
+            <div class="hairstyles-grid">
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/Phu%CC%A3c%20ho%CC%82%CC%80i%20(737%20x%20900%20px)%20(4).png" alt="Tóc Bob">
+                    <p>Kiểu Tóc Bob</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/C%E1%BA%AFt%2C%20t%E1%BA%A1o%20ki%E1%BB%83u/T%C3%B3c%20d%C3%A0i/3.png" alt="Tóc Dài">
+                    <p>Kiểu Tóc Dài</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/C%E1%BA%AFt%2C%20t%E1%BA%A1o%20ki%E1%BB%83u/T%C3%B3c%20ng%E1%BA%AFn/T%C3%B3c%20ng%E1%BA%AFn/Phu%CC%A3c%20ho%CC%82%CC%80i%20(737%20x%20900%20px)%20(9).png" alt="Tóc Ngắn">
+                    <p>Kiểu Tóc Ngắn</p>
+                </div>
+                      <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/C%E1%BA%AFt%2C%20t%E1%BA%A1o%20ki%E1%BB%83u/Xu%20h%C6%B0%E1%BB%9Bng/37.png" alt="Tóc Xu Hướng">
+                    <p>Kiểu Tóc Xu Hướng</p>
+                </div>
+                      <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/22.png" alt="Tóc Lỡ">
+                    <p>Kiểu Tóc Lỡ </p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dịch Vụ</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cắt, Tạo Kiểu</td>
+                            <td>200.000 VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>                                        
+            </div>
+            <h2>Tóc Uốn - Duỗi</h2>
+            <div class="hairstyles-grid">
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/U%E1%BB%91n%20du%E1%BB%97i/T%C3%B3c%20Du%E1%BB%97i/305.png" alt="Tóc Duỗi">
+                    <p>Tóc Duỗi Thẳng</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/U%E1%BB%91n%20du%E1%BB%97i/U%E1%BB%91n%20Hippie/1.png" alt="Tóc Uốn Xoăn">
+                    <p>Tóc Uốn Xoăn</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/U%E1%BB%91n%20du%E1%BB%97i/U%E1%BB%91n%20l%C6%A1i/6.png" alt="Tóc Uốn Dơn Sóng Lơi, Xoăn Ngọn">
+                    <p>Tóc Uốn Dợn Sóng Lơi, Xoăn Ngọn</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dịch Vụ</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Duỗi Tóc</td>
+                            <td>350.000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Uốn Xoăn</td>
+                            <td>400.000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Uốn Lơi</td>
+                            <td>300.000 VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>              
+            </div>
+
+            <h2>Tóc Nam</h2>
+            <div class="hairstyles-grid">
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/T%C3%B3c%20nam/1.png" alt="Tóc Nam 1">
+                    <p>Tóc Nam Kiểu 1</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/T%C3%B3c%20nam/4.png" alt="Tóc Nam 2">
+                    <p>Tóc Nam Kiểu 2</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://cdn.glitch.global/d96ffb3d-af12-4b93-a8da-d72c7df9a16d/thumbnails%2Fdbaeaeb6-4a25-4b27-9b65-d27d6ec08c5a.image.png?1728757815495" alt="Tóc Nam 3">
+                    <p>Tóc Nam Kiểu 3</p>
+                </div>
+                 <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/T%C3%B3c%20nam/8.png" alt="Tóc Nam 4">
+                    <p>Tóc Nam Kiểu 4</p>
+                </div>   
+                <div class="hairstyle">
+                    <img src="https://tocdeplehieu.com/img/upload/images/bo-suu-tap/T%C3%B3c%20nam/6.png" alt="Tóc Nam 5">
+                    <p>Tóc Nam Kiểu 5</p>
+                </div>
+                <div class="hairstyle">
+                    <img src="https://cdn.glitch.global/d96ffb3d-af12-4b93-a8da-d72c7df9a16d/thumbnails%2F60365582-9628-4ca3-a2a1-f75861927fa2.image.png?1728757936902" alt="Tóc Nam 6">
+                    <p>Tóc Nam Kiểu 6</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dịch Vụ</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cắt, Tạo Kiểu</td>
+                            <td>100.000 VNĐ</td>
+                        </tr>
+                    </tbody>
+                </table>
+          </div>
+            <!-- Thêm phần modal cho bảng màu -->
+
+    <div id="colorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Bảng Màu Tham Khảo</h2>
+            <img src="https://file.hstatic.net/1000360737/article/bang_nhuom_mau_toc_7ffc724677d94c90811910d3199d37c3.jpg" 
+                 alt="Bảng Màu" style="width: 100%; max-width: 800px; border-radius: 8px;">
+        </div>
+    </div>
+  </div>
+        <div id="login" class="form-section">
+            <h1>Đăng Nhập</h1>
+            <label for="login-email">Email hoặc Số điện thoại</label>
+            <input type="text" id="login-email" placeholder="Nhập email hoặc số điện thoại" required>
+            
+            <label for="login-password">Mật khẩu</label>
+            <input type="password" id="login-password" placeholder="Nhập mật khẩu" required>
+            
+            <div id="login-error" class="error"></div>
+            
+            <button type="button" onclick="login()">Đăng Nhập</button>
+            
+            <p class="message">Chưa có tài khoản? <a href="#" onclick="showSection('register')">Đăng ký ngay!</a></p>
+        </div>
+
+        <div id="register" class="form-section">
+            <h1>Đăng Ký</h1>
+            <label for="reg-name">Họ và Tên</label>
+            <input type="text" id="reg-name" placeholder="Nhập họ và tên" required>
+            
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" placeholder="Nhập email" required>
+            
+            <label for="reg-password">Mật khẩu</label>
+            <input type="password" id="reg-password" placeholder="Nhập mật khẩu" required>
+            
+            <div id="register-error" class="error"></div>
+            
+            <button type="button" onclick="register()">Đăng Ký</button>
+            
+            <p class="message">Đã có tài khoản? <a href="#" onclick="showSection('login')">Đăng nhập ngay!</a></p>
+        </div>
+
+        <div id="booking" class="form-section">
+            <h1>Đặt Lịch Hẹn</h1>
+            <label for="service">Dịch vụ</label>
+            <select id="service">
+                <option value="haircut">Cắt tóc</option>
+                <option value="coloring">Nhuộm tóc</option>
+                <option value="styling">Tạo kiểu tóc</option>
+            </select>
+            
+            <label for="stylist">Chọn Stylist</label>
+            <select id="stylist">
+                <option value="stylist1">Stylist 1</option>
+                <option value="stylist2">Stylist 2</option>
+                <option value="stylist3">Stylist 3</option>
+            </select>
+            
+            <label for="date">Ngày</label>
+            <input type="date" id="date" required>
+            
+            <label for="time">Giờ</label>
+            <input type="time" id="time" required>
+            
+            <button type="button" onclick="alert('Đặt lịch thành công!')">Đặt Lịch</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(section) {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+                sec.style.display = 'none';
+            });
+            const selectedSection = document.getElementById(section);
+            selectedSection.style.display = 'block';
+            setTimeout(() => {
+                selectedSection.classList.add('active');
+            }, 10);
+        }
+
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            if (!email || !password) {
+                errorDiv.textContent = 'Vui lòng nhập đầy đủ thông tin!';
+            } else {
+                errorDiv.textContent = '';
+                alert('Đăng nhập thành công!');
+            }
+        }
+
+        function register() {
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const errorDiv = document.getElementById('register-error');
+
+            if (!name || !email || !password) {
+                errorDiv.textContent = 'Vui lòng nhập đầy đủ thông tin!';
+            } else {
+                errorDiv.textContent = '';
+                alert('Đăng ký thành công!');
+            }
+        }
+    </script>
+</body>
+</html>
