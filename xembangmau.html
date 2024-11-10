@@ -1,0 +1,18 @@
+<button onclick="openModal()">Xem Bảng Màu</button>
+
+<script>
+    function openModal() {
+        document.getElementById('colorModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('colorModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('colorModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
