@@ -137,6 +137,7 @@
         <a href="#" onclick="showSection('login')">Đăng Nhập</a>
         <a href="#" onclick="showSection('register')">Đăng Ký</a>
         <a href="#" onclick="showSection('booking')">Đặt Lịch Hẹn</a>
+        <a href="#" onclick="showSection('chat')">Chat</a>
     </nav>
 
     <div class="container">
@@ -247,6 +248,12 @@
         </div>
         <div class="error" id="error-message" style="display:none;">
             <p>Đã có lỗi xảy ra. Vui lòng thử lại.</p>
+        </div>
+                <div id="chat" class="form-section">
+            <h1>Trò Chuyện</h1>
+            <div class="chat-container" id="chatContainer"></div>
+            <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
+            <button onclick="sendMessage()">Gửi</button>
         </div>
 
         </div>
@@ -489,6 +496,25 @@
         document.getElementById('success-message').style.display = 'none'; // Ẩn thông báo sau khi chuyển trang
     }, 3000); // Thời gian chờ 3 giây để người dùng nhìn thấy thông báo
 }
+              function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message) {
+                const chatContainer = document.getElementById('chatContainer');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'chat-message';
+                userMessage.textContent = 'User: ' + message;
+                chatContainer.appendChild(userMessage);
+
+                const adminMessage = document.createElement('div');
+                adminMessage.className = 'chat-message admin';
+                adminMessage.textContent = 'AD: Cảm ơn bạn đã liên hệ!';
+                chatContainer.appendChild(adminMessage);
+
+                input.value = '';
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
     </script>
 </body>
 </html>
