@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{440BD534-B7F1-4D71-8428-93E6B7FAEDB4}"
+	ProjectSection(SolutionItems) = preProject
+		sever.js = sever.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{5707F8B4-2DF3-416C-AEA3-2B1202D364F9}"
+	ProjectSection(SolutionItems) = preProject
+		HairSalonBookingApp.html = HairSalonBookingApp.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{0D280447-4F5E-4140-B9F0-3375CA33BD83}"
+	ProjectSection(SolutionItems) = preProject
+		Booking.js = Booking.js
+		user.js = user.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Routes", "Routes", "{C25E76B8-1955-4B3B-A369-46E034CA0F76}"
+	ProjectSection(SolutionItems) = preProject
+		Auth.js = Auth.js
+		bk.js = bk.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D280447-4F5E-4140-B9F0-3375CA33BD83} = {440BD534-B7F1-4D71-8428-93E6B7FAEDB4}
+		{C25E76B8-1955-4B3B-A369-46E034CA0F76} = {440BD534-B7F1-4D71-8428-93E6B7FAEDB4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8FA9268-8D1B-4A16-8EC6-04C6AF7D4B1A}
+	EndGlobalSection
+EndGlobal
