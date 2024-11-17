@@ -41,6 +41,7 @@
         label {
             display: block;
             margin-bottom: 8px;
+            font-weight: bold;
         }
         input, select {
             width: 100%;
@@ -175,6 +176,77 @@
             <button type="button" onclick="register()">Đăng Ký</button>
             
             <p class="message">Đã có tài khoản? <a href="#" onclick="showSection('login')">Đăng nhập ngay!</a></p>
+        </div>
+       <!-- Đặt lịch hẹn section -->
+                <div id="booking" class="form-section">
+            <h1>Đặt Lịch Hẹn</h1>
+            <label for="service">Dịch vụ</label>
+            <select id="service">
+                <option value="haircut" data-price="200000">Cắt tóc - 200,000 VNĐ</option>
+                <option value="coloring" data-price="400000">Nhuộm tóc - 400,000 VNĐ</option>
+                <option value="styling" data-price="300000">Tạo kiểu tóc - 300,000 VNĐ</option>
+            </select>
+            
+            <label for="stylist">Chọn Stylist</label>
+            <select id="stylist">
+                <option value="stylist1">Stylist 1</option>
+                <option value="stylist2">Stylist 2</option>
+                <option value="stylist3">Stylist 3</option>
+            </select>
+            
+            <label for="date">Ngày</label>
+            <input type="date" id="date" required>
+            
+            <label for="time">Giờ</label>
+            <input type="time" id="time" required>
+            
+            <button type="button" onclick="proceedToPayment()">Đặt Lịch</button>
+        </div>
+
+        <!-- Phần Thanh Toán -->
+        <div id="payment" class="form-section">
+            <h1>Thanh Toán</h1>
+            <p>Chọn phương thức thanh toán:</p>
+            <label>
+                <input type="radio" name="payment-method" value="credit-card" onclick="showPaymentMethod('credit-card')" checked> Thẻ tín dụng
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="momo" onclick="showPaymentMethod('momo')"> Ví MoMo
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="in-store" onclick="showPaymentMethod('in-store')"> Thanh toán tại quán
+            </label>
+
+            <!-- Thanh toán bằng thẻ tín dụng -->
+            <div id="credit-card-section" class="payment-section">
+                <label for="card-number">Số thẻ</label>
+                <input type="text" id="card-number" placeholder="Nhập số thẻ" maxlength="16">
+                <label for="card-name">Tên trên thẻ</label>
+                <input type="text" id="card-name" placeholder="Nhập tên trên thẻ">
+                <label for="expiry-date">Ngày hết hạn</label>
+                <input type="month" id="expiry-date">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" maxlength="3">
+                <button onclick="completePayment()">Hoàn tất thanh toán</button>
+            </div>
+
+            <!-- Thanh toán bằng MoMo -->
+            <div id="momo-section" class="payment-section" style="display: none;">
+                <img id="momo-fields" src="https://cdn.glitch.global/aa8ccc72-efbf-4241-9554-3de5e77aa333/thumbnails%2F0964a114-d8e4-45ff-a6bf-9ce96fd9c0e7.image.png?1731865498968" alt="Momo payment">
+                <p>Quét mã MoMo để thanh toán</p>
+            </div>
+
+            <!-- Thanh toán tại quán -->
+            <div id="in-store-section" class="payment-section" style="display: none;">
+                <p>Thanh toán khi đến quán.</p>
+            </div>
+        </div>
+
+        <div class="message" id="success-message" style="display:none;">
+            <p>Cảm ơn bạn đã đặt lịch thành công!</p>
+        </div>
+        <div class="error" id="error-message" style="display:none;">
+            <p>Đã có lỗi xảy ra. Vui lòng thử lại.</p>
         </div>
 
         </div>
@@ -342,79 +414,7 @@
     </div>
   </div>
 
-        <!-- Đặt lịch hẹn section -->
-        <div id="booking" class="form-section">
-            <h1>Đặt Lịch Hẹn</h1>
-            <label for="service">Dịch vụ</label>
-            <select id="service">
-                <option value="haircut" data-price="200000">Cắt tóc - 200,000 VNĐ</option>
-                <option value="coloring" data-price="400000">Nhuộm tóc - 400,000 VNĐ</option>
-                <option value="styling" data-price="300000">Tạo kiểu tóc - 300,000 VNĐ</option>
-            </select>
-            
-            <label for="stylist">Chọn Stylist</label>
-            <select id="stylist">
-                <option value="stylist1">Stylist 1</option>
-                <option value="stylist2">Stylist 2</option>
-                <option value="stylist3">Stylist 3</option>
-            </select>
-            
-            <label for="date">Ngày</label>
-            <input type="date" id="date" required>
-            
-            <label for="time">Giờ</label>
-            <input type="time" id="time" required>
-            
-            <button type="button" onclick="proceedToPayment()">Đặt Lịch</button>
-        </div>
-
-        <!-- Phần Thanh Toán -->
-        <div id="payment" class="form-section">
-            <h1>Thanh Toán</h1>
-            <p>Chọn phương thức thanh toán:</p>
-            <label>
-                <input type="radio" name="payment-method" value="credit-card" onclick="showPaymentMethod('credit-card')" checked> Thẻ tín dụng
-            </label>
-            <label>
-                <input type="radio" name="payment-method" value="momo" onclick="showPaymentMethod('momo')"> Ví MoMo
-            </label>
-            <label>
-                <input type="radio" name="payment-method" value="in-store" onclick="showPaymentMethod('in-store')"> Thanh toán tại quán
-            </label>
-
-            <!-- Thanh toán bằng thẻ tín dụng -->
-            <div id="credit-card-section" class="payment-section">
-                <label for="card-number">Số thẻ</label>
-                <input type="text" id="card-number" placeholder="Nhập số thẻ" maxlength="16">
-                <label for="card-name">Tên trên thẻ</label>
-                <input type="text" id="card-name" placeholder="Nhập tên trên thẻ">
-                <label for="expiry-date">Ngày hết hạn</label>
-                <input type="month" id="expiry-date">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" maxlength="3">
-                <button onclick="completePayment()">Hoàn tất thanh toán</button>
-            </div>
-
-            <!-- Thanh toán bằng MoMo -->
-            <div id="momo-section" class="payment-section" style="display: none;">
-                <img id="momo-fields" src="https://cdn.glitch.global/aa8ccc72-efbf-4241-9554-3de5e77aa333/thumbnails%2F0964a114-d8e4-45ff-a6bf-9ce96fd9c0e7.image.png?1731865498968" alt="Momo payment">
-                <p>Quét mã MoMo để thanh toán</p>
-            </div>
-
-            <!-- Thanh toán tại quán -->
-            <div id="in-store-section" class="payment-section" style="display: none;">
-                <p>Thanh toán khi đến quán.</p>
-            </div>
-        </div>
-
-        <div class="message" id="success-message" style="display:none;">
-            <p>Cảm ơn bạn đã đặt lịch thành công!</p>
-        </div>
-        <div class="error" id="error-message" style="display:none;">
-            <p>Đã có lỗi xảy ra. Vui lòng thử lại.</p>
-        </div>
-    </div>
-
+       
     <script>
         let currentSection = 'home';
         
@@ -435,7 +435,6 @@
                 alert('Đăng nhập thành công!');
             }
         }
-
         function register() {
             const name = document.getElementById('reg-name').value;
             const email = document.getElementById('reg-email').value;
